@@ -26,7 +26,23 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org/",
+          "@type": "Agenda",
+          "name": "Agenda vue",
+          "author": {
+            "@type": "Person",
+            "name": "Irati, Unai y Sergio"
+            "email": "sergio@gmail.com"
+            "telephone": "66666666"
+            "address": "Universidad de Deusto"
+          },
+          "datePublished": "2021/12/12",
+          "description": "Agenda para anotar nuestros con",
+          "prepTime": "PT20M"
+        }
+        </script>
 </head>
 
 <body id="page-top" class="index">
@@ -103,20 +119,23 @@
                         <h4>Teléfono</h4>
                     </div>
                 </div>
-                <div class="row" v-for="c in contactos">
-                    <div class="col-xs-4">
-                        <p>{{ c.nombre }}</p>
+                <p vocab = "http://schema.org/" typeof = "Person">
+                    <div class="row" v-for="c in contactos">
+                        <div class="col-xs-4">
+                            <p><span property = "name" >{{ c.nombre }}</span></p>
+                        </div>
+                        <div class="col-xs-4">
+                            <p><span property = "email" >{{ c.email }}</span></p>
+                        </div>
+                        <div class="col-xs-3">
+                            <p><span property = "telephone" >{{ c.tel }}</span></p>
+                        </div>
+                        <div class="col-xs-1">
+                            <button class="btn btn-danger btn-sm" @click="removeContact(c)"><span class="glyphicon glyphicon-remove"></span></button>
+                        </div>
                     </div>
-                    <div class="col-xs-4">
-                        <p>{{ c.email }}</p>
-                    </div>
-                    <div class="col-xs-3">
-                        <p>{{ c.tel }}</p>
-                    </div>
-                    <div class="col-xs-1">
-                        <button class="btn btn-danger btn-sm" @click="removeContact(c)"><span class="glyphicon glyphicon-remove"></span></button>
-                    </div>
-                </div>
+                </p>
+                
                 <div class="row">
                 </div>
                 </div>
